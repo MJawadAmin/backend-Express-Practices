@@ -3,6 +3,10 @@ const app = express();
 
 app.set("view engine" , "ejs");
 app.use(express.static('./public'));
+app.use(function (req, res , next){
+  console.log("Middleware are runnig")
+  next();
+})
 
 app.get('/', (req, res)=>{
     res.render('index')
@@ -17,7 +21,9 @@ app.get('/about', (req, res)=>{
 app.get('/contact', (req, res)=>{
     res.render('contact')
 })
-
+app.get('/signup', (req, res)=>{
+    res.render('signup')
+})
 
 app.use(function errorHandler (err, req, res, next) {
     if (res.headersSent) {
