@@ -25,6 +25,9 @@ app.get('/signup', (req, res)=>{
     res.render('signup')
 })
 
+app.get('/css', (req, res)=>{
+  res.render('css')
+})
 app.use(function errorHandler (err, req, res, next) {
     if (res.headersSent) {
       return next(err)
